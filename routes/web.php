@@ -14,3 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('event', 'EventController@show');
+
+Route::get('registration', function () {
+    return view('registration');
+});
+
+Route::get('contactus', function () {
+    return view('contactus');
+});

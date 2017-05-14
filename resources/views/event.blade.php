@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Computer Festival 2017</title>
+        <title>Computer Festival 2017 - Events</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -62,11 +62,11 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
-
-            .footer {
-                text-align: center;
-            }
         </style>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
@@ -90,26 +90,26 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Computer Festival 2017
+                    Events
                 </div>
 
-                <content>
-                    <h1>An annual one-stop IT event held by students of Faculty of Computer Science, University of Indonesia. </h1>
-                    <p> CompFest menghadirkan berbagai kompetisi IT yang dapat membawa inovasi berdaya guna bagi masyarakat, pameran IT dengan teknologi terbaru Indonesia yang dikemas dengan konsep gamifikasi, seminar mengenai berbagai macam topik terbaru IT, dan tentunya
-                        Internet of Things Academy dan Startup Academy yang bertujuan untuk memajukan kreativitas pemuda-pemudi Indonesia.</p>
-
-                    <p>Tahun ini, CompFest 2017 maju dengan membawa tema "Step Up Indonesia's IT Potentials for the Challenges of Tomorrow".</p>
-
-                    <h2>Visi: CompFest menjadi bentuk pengabdian mahasiswa yang memberikan kebermanfaatan dalam bidang teknologi informasi dengan cara berbagi secara terbuka untuk Indonesia yang lebih maju.</h2>
-                    <h2>Misi: Mewadahi, menggerakkan, dan membangun antusiasme terhadap perkembangan teknologi informasi di Indonesia melalui rangkaian akademi, event, dan kompetisi.</h2>
-
-                    <p>For 7 years, CompFest has collaborated with: 143 Exhibitors 150 Partners 80.000 Participants</p>
-                </content>
+                <div class="table-responsive">
+                    <table class='table'>
+                        <thead> <tr> <th>ID</th> <th>Judul</th> <th>Waktu</th> <th>Pembicara</th> <th>Deskripsi</th> </tr> </thead>
+                        <tbody>
+                            @foreach($events as $event)
+                                <tr>
+                                    <td>{{$event->id_event}}</td>
+                                    <td>{{$event->judul}}</td>
+                                    <td>{{$event->waktu_acara}}</td>
+                                    <td>{{$event->pembicara}}</td>
+                                    <td>{{$event->deskripsi}}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            
         </div>
-        <footer class="footer">
-             Copyright Computer Festival 2017
-        </footer>
     </body>
 </html>
