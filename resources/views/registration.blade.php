@@ -63,6 +63,8 @@
                 margin-bottom: 30px;
             }
         </style>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+        <script src="js/registration.js"></script>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
@@ -86,16 +88,64 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Registrasi
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                <form class="pesan" action="registration/send" method="post">
+                    {{csrf_field()}} 
+                    Form Pendaftaran <br> Nama: <input type="Text" name="nama" id="nama"><br> Tema:
+                    <select id="tema" name="tema">
+                        <option value=""></option>
+                        @foreach($temas as $tema)
+                            <option value="{{$tema->id_tema}}">{{$tema->nama}}</option>
+                        @endforeach
+                    </select>
+                    <br> Status:
+                    <select id="status" name="status">
+                        <option value="pelajar">Pelajar</option>
+                        <option value="profesional">Profesional</option>
+                    </select> 
+                    <br>Harga Tiket: 
+                    <div class="harga-tiket" id="harga" name="harga"></div>
+                    <input type="file" name="image" id="image"><br>
+                    <input id="kirim" type="submit" value="Send" />
+                </form>
+                <br>
+
+                <div class="title m-b-md">
+                    Daftar Peserta Computer Festival 2017
                 </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nama Peserta</th>
+                            <th>Tema Acara</th>
+                            <th>Status</th>
+                            <th>Bukti Pembayaran</th>
+                            <th>Total Pembayaran</th>
+                        </tr>
+                    </thead>
+                    <tbody id="pemasukan">
+                        @foreach($pesertas as $peserta)
+                            @foreach($temass as $tem)
+                            @if($peserta->id_tema===$tem->id_tema)
+                            <tr>
+                                <td>{{$peserta->nama}}</td>
+                                <td>{{$tem->nama}}</td>
+                                <td>{{$peserta->status}}</td>
+                                <td>{{$peserta->bukti_bayar}}</td>
+                                <td>{{strcmp($peserta->status,'pelajar') ? $tem->harga_tiket : ($tem->harga_tiket)/2 }}</td>
+                            </tr>
+                            @endif
+                            @endforeach
+                        @endforeach
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            
+                        </tr>
+                    </tfoot>
+                </table>
             </div>
         </div>
     </body>

@@ -17,9 +17,9 @@ Route::get('/', function () {
 
 Route::get('event', 'EventController@show');
 
-Route::get('registration', function () {
-    return view('registration');
-});
+Route::get('registration', 'PesertaTemaController@show');
+Route::get('registration/ajax/{tema}',array('as'=>'registration.ajax','uses'=>'PesertaTemaController@getHarga'));
+Route::post('registration/send',array('uses'=>'PesertaTemaController@insert'));
 
 Route::get('contactus', function () {
     return view('contactus');

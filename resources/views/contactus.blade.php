@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Computer Festival 2017</title>
+        <title>Computer Festival 2017 - Contact Us</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -86,16 +86,16 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Contact Us
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+                <content class="contact">
+                    <p>Sekretariat Computer Festival 2017:</p>
+                    <p>Ruang BEM Fasilkom UI </p>
+                    <p>Fakulltas Ilmu Komputer</p>
+                    <p>Universitas Indonesia Kampus Depok</p>
+                    <p>16240</p>
+                </content>
             </div>
         </div>
     </body>
